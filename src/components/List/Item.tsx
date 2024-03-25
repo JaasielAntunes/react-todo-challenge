@@ -4,15 +4,20 @@ import { ITask } from '../../App'
 
 interface Props {
   data: ITask
+  removeTask: (id: number) => void
 }
 
-export function Item({ data }: Props) {
+export function Item({ data, removeTask }: Props) {
   const checkboxCheckedClassname = data.isChecked
     ? styles['checkbox-checked']
     : styles['checkbox-unchecked']
   const paragraphCheckedClassname = data.isChecked
     ? styles['paragraph-checked']
     : ''
+
+  function handleRemove() {
+    removeTask(data.id)
+  }
 
   return (
     <div className={styles.container}>
@@ -29,7 +34,7 @@ export function Item({ data }: Props) {
         </label>
       </div>
 
-      <button>
+      <button onClick={handleRemove}>
         <Trash size={16} color="#808080" />
       </button>
     </div>
