@@ -1,8 +1,10 @@
 import './global.css'
 import styles from './App.module.css'
 import { Header } from './components/Header'
+import { Header as ListHeader } from './components/List/Header'
 import { Input } from './components/Input'
 import { Button } from './components/Button'
+
 import { PlusCircle } from 'phosphor-react'
 
 function App() {
@@ -19,6 +21,10 @@ function App() {
               Criar
               <PlusCircle size={16} color="#f2f2f2" weight="bold" />
             </Button>
+          </div>
+
+          <div className={styles.tasksList}>
+            <ListHeader />
           </div>
         </section>
       </main>
