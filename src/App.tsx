@@ -1,6 +1,7 @@
 import './global.css'
 import styles from './App.module.css'
 import { Header } from './components/Header'
+import { Input } from './components/Input'
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
         <Header />
 
         <section className={styles.content}>
-          <div className={styles.taskInfoContainer}></div>
+          <div className={styles.taskInfoContainer}>
+            <Input />
+          </div>
         </section>
       </main>
     </>

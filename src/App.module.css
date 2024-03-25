@@ -3,3 +3,15 @@
   width: 100%;
   margin: 0 auto;
 }
+
+.taskInfoContainer {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  gap: 0.5rem;  
+}
+
+.taskInfoContainer input, .taskInfoContainer {
+  transform: translateY(-20%);
+  margin-bottom: 2.3125rem;
+}
