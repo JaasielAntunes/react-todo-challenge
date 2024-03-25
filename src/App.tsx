@@ -1,9 +1,10 @@
 import './global.css'
 import styles from './App.module.css'
 import { Header } from './components/Header'
-import { Header as ListHeader } from './components/List/Header'
 import { Input } from './components/Input'
 import { Button } from './components/Button'
+import { Header as ListHeader } from './components/List/Header'
+import { Item } from './components/List/Item'
 
 import { PlusCircle } from 'phosphor-react'
 
@@ -25,6 +26,8 @@ function App() {
 
           <div className={styles.tasksList}>
             <ListHeader />
+
+            <Item />
           </div>
         </section>
       </main>
