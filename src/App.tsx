@@ -20,6 +20,14 @@ export function App() {
   const [tasks, setTasks] = useState<ITask[]>([])
   const [inputValue, setInputValue] = useState('')
 
+  const checkedTasksCounter = tasks.reduce((prevValue, currentTask) => {
+    if (currentTask.isChecked) {
+      return prevValue + 1
+    }
+
+    return prevValue
+  }, 0)
+
   function handleAddTask() {
     if (!inputValue) {
       return
@@ -45,6 +53,18 @@ export function App() {
     setTasks(filteredTasks)
   }
 
+  function handleToggleTask({ id, value }: { id: number; value: boolean }) {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, isChecked: value }
+      }
+
+      return { ...task }
+    })
+
+    setTasks(updatedTasks)
+  }
+
   return (
     <>
       <main>
@@ -64,7 +84,10 @@ export function App() {
           </div>
 
           <div className={styles.tasksList}>
-            <ListHeader />
+            <ListHeader
+              tasksCounter={tasks.length}
+              checkedTasksCounter={checkedTasksCounter}
+            />
 
             {tasks.length > 0 ? (
               <div>
@@ -73,6 +96,7 @@ export function App() {
                     key={task.id}
                     data={task}
                     removeTask={handleRemoveTask}
+                    toggleTaskStatus={handleToggleTask}
                   />
                 ))}
               </div>

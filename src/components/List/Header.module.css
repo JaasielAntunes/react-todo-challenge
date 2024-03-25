@@ -3,6 +3,7 @@
   flex: 1;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 0.3rem;
 }
 
 .container aside {

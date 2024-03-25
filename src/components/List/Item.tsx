@@ -5,9 +5,10 @@ import { ITask } from '../../App'
 interface Props {
   data: ITask
   removeTask: (id: number) => void
+  toggleTaskStatus: ({ id, value }: { id: number; value: boolean }) => void
 }
 
-export function Item({ data, removeTask }: Props) {
+export function Item({ data, removeTask, toggleTaskStatus }: Props) {
   const checkboxCheckedClassname = data.isChecked
     ? styles['checkbox-checked']
     : styles['checkbox-unchecked']
@@ -19,10 +20,14 @@ export function Item({ data, removeTask }: Props) {
     removeTask(data.id)
   }
 
+  function handleTaskToggle() {
+    toggleTaskStatus({ id: data.id, value: !data.isChecked })
+  }
+
   return (
     <div className={styles.container}>
       <div>
-        <label htmlFor="checkbox">
+        <label htmlFor="checkbox" onClick={handleTaskToggle}>
           <input readOnly type="checkbox" checked={data.isChecked} />
           <span className={`${styles.checkbox} ${checkboxCheckedClassname}`}>
             {data.isChecked && <Check size={12} />}
