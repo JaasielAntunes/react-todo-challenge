@@ -13,15 +13,15 @@
   --green-500: #00875f;
   --purple: #8284fa;
   --purple-dark: #5e60ce;
-}
 
-:second-root {
   --text: #666;
   --text-highlight: #b3b9ff;
   --title: #2e384d;
   --danger: #e83f5b;
   --green: #4cd62b;
+  --blue-dark: #448cad;
   --blue-twitter: #2aa9e0;
+  --blue: #01affa;
 }
 
 * {

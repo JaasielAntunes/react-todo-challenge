@@ -11,7 +11,7 @@
   gap: 0.5rem;  
 }
 
-.taskInfoContainer input, .taskInfoContainer {
-  transform: translateY(-20%);
+.taskInfoContainer input, .taskInfoContainer button {
+  transform: translateY(-50%);
   margin-bottom: 2.3125rem;
 }
