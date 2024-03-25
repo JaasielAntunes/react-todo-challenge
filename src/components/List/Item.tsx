@@ -1,22 +1,36 @@
 import styles from './Item.module.css'
 import { Trash, Check } from 'phosphor-react'
+import { ITask } from '../../App'
 
-export function Item() {
+interface Props {
+  data: ITask
+}
+
+export function Item({ data }: Props) {
+  const checkboxCheckedClassname = data.isChecked
+    ? styles['checkbox-checked']
+    : styles['checkbox-unchecked']
+  const paragraphCheckedClassname = data.isChecked
+    ? styles['paragraph-checked']
+    : ''
+
   return (
     <div className={styles.container}>
       <div>
-        <label htmlFor="">
-          <input type="checkbox" />
-          <span>
-            <Check size={12} />
+        <label htmlFor="checkbox">
+          <input readOnly type="checkbox" checked={data.isChecked} />
+          <span className={`${styles.checkbox} ${checkboxCheckedClassname}`}>
+            {data.isChecked && <Check size={12} />}
           </span>
 
-          <p></p>
+          <p className={`${styles.paragraph} ${paragraphCheckedClassname}`}>
+            {data.text}
+          </p>
         </label>
       </div>
 
       <button>
-        <Trash size={15} color="#808080" />
+        <Trash size={16} color="#808080" />
       </button>
     </div>
   )
